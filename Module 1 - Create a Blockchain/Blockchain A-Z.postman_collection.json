@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "860b2a01-92ef-4c68-ba20-de77fb91b0be",
+		"name": "Blockchain A-Z",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Module1-Create_a_blockchain",
+			"item": [
+				{
+					"name": "GET Chain",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/get_chain",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"get_chain"
+							]
+						},
+						"description": "Get the entire blockchain"
+					},
+					"response": []
+				},
+				{
+					"name": "GET | Mine Block",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/mine_block",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"mine_block"
+							]
+						},
+						"description": "mine a block to add a block in the block chain and get the block as the reponse from the server"
+					},
+					"response": []
+				},
+				{
+					"name": "GET is blockchian valid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/is_valid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"is_valid"
+							]
+						},
+						"description": "GET a reponse to check if blockchain is still valid"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
