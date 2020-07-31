@@ -1,0 +1,442 @@
+{
+	"info": {
+		"_postman_id": "860b2a01-92ef-4c68-ba20-de77fb91b0be",
+		"name": "Blockchain A-Z",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Module1-Create_a_blockchain",
+			"item": [
+				{
+					"name": "GET Chain",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/get_chain",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"get_chain"
+							]
+						},
+						"description": "Get the entire blockchain"
+					},
+					"response": []
+				},
+				{
+					"name": "GET | Mine Block",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/mine_block",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"mine_block"
+							]
+						},
+						"description": "mine a block to add a block in the block chain and get the block as the reponse from the server"
+					},
+					"response": []
+				},
+				{
+					"name": "GET is blockchian valid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/is_valid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"is_valid"
+							]
+						},
+						"description": "GET a reponse to check if blockchain is still valid"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Module2-Create_a_cryptocurrency",
+			"item": [
+				{
+					"name": "UserRequests",
+					"item": [
+						{
+							"name": "get_chain",
+							"item": [
+								{
+									"name": "http://127.0.0.1:5001/get_chain",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://127.0.0.1:5001/get_chain",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "5001",
+											"path": [
+												"get_chain"
+											]
+										},
+										"description": "Create the blockchain for user 1 at port 5001"
+									},
+									"response": []
+								},
+								{
+									"name": "http://127.0.0.1:5002/get_chain",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://127.0.0.1:5002/get_chain",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "5002",
+											"path": [
+												"get_chain"
+											]
+										},
+										"description": "Create the blockchain for user 2 at port 5002"
+									},
+									"response": []
+								},
+								{
+									"name": "http://127.0.0.1:5003/get_chain",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://127.0.0.1:5003/get_chain",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "5003",
+											"path": [
+												"get_chain"
+											]
+										},
+										"description": "Create the blockchain for user 3 at port 5003"
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "connect_node",
+							"item": [
+								{
+									"name": "http://127.0.0.1:5001/connect_node",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nodes\":[\r\n        \"http://127.0.0.1:5002\",\r\n        \"http://127.0.0.1:5003\"\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:5001/connect_node",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "5001",
+											"path": [
+												"connect_node"
+											]
+										},
+										"description": "Connect this node to other nodes"
+									},
+									"response": []
+								},
+								{
+									"name": "http://127.0.0.1:5002/connect_node",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nodes\":[\r\n        \"http://127.0.0.1:5001\",\r\n        \"http://127.0.0.1:5003\"\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:5002/connect_node",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "5002",
+											"path": [
+												"connect_node"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "http://127.0.0.1:5003/connect_node",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nodes\":[\r\n        \"http://127.0.0.1:5001\",\r\n        \"http://127.0.0.1:5002\"\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:5003/connect_node",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "5003",
+											"path": [
+												"connect_node"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "replace_chain",
+							"item": [
+								{
+									"name": "replace chain with the longest chain",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://127.0.0.1:5002/replace_chain",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "5002",
+											"path": [
+												"replace_chain"
+											]
+										},
+										"description": "Replace the node's chain with the longest block chain. To establish consensus amoung the nodes"
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "mine_block",
+							"item": [
+								{
+									"name": "http://127.0.0.1:5001/mine_block",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://127.0.0.1:5001/mine_block",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "5001",
+											"path": [
+												"mine_block"
+											]
+										},
+										"description": "Replace the port no to 5002/5003 to mine via other nodes"
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "add_transaction",
+							"item": [
+								{
+									"name": "add_transaction via node at port 5001",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"sender\":\"Hadelin\",\r\n    \"receiver\":\"Kirill\",\r\n    \"amount\":10000\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:5001/add_transaction",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "5001",
+											"path": [
+												"add_transaction"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "GET Chain",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/get_chain",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"get_chain"
+							]
+						},
+						"description": "Get the entire blockchain"
+					},
+					"response": []
+				},
+				{
+					"name": "GET | Mine Block",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/mine_block",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"mine_block"
+							]
+						},
+						"description": "mine a block to add a block in the block chain and get the block as the reponse from the server"
+					},
+					"response": []
+				},
+				{
+					"name": "GET is blockchian valid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/is_valid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"is_valid"
+							]
+						},
+						"description": "GET a reponse to check if blockchain is still valid"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
